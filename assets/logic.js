@@ -1,9 +1,9 @@
 $(document).ready(function () {
   let currentDayId = $("#currentDay");
   let containerEl = $(".container");
+  let hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
- 
-init();
+  init();
 
 
   function displayCurrentDay() {
@@ -21,7 +21,7 @@ init();
     for (let i = 9; i <= 17; i++) {
       let hour = moment().hour(i).format('H a');
       // console.log("this is the hour ======" + hour);
-      let inputField = " <input class='input-field textarea' type='text' data-time =" + hour + " >";
+      let inputField = " <input value = ' ' class='input-field textarea' type='text' data-time =" + hour + " >";
       let row = "<div class='row'>" + hour + inputField + button + "</div>";
       // console.log(`Time: ${hour}`);
       $(row).appendTo(containerEl);
@@ -62,8 +62,8 @@ init();
 
   pastPresentFutureBackground();
 
-//Adding input values to localstorage 
-
+  //Adding input values to localstorage 
+//----------------------------------------------------------------------------------------
   // function addValuesToLocalStorage(){   
   //   let inputValue = $(this).prev(".input-field").val();   // takeing the value
   //   let inputArray = JSON.parse(localStorage.getItem("input")) || [];
@@ -71,65 +71,65 @@ init();
   //   localStorage.setItem("input", JSON.stringify(inputArray));
   //   $(".input-field").value = inputValue;
   //     }
-    
+
   //     $(".saveBtn").on("click", addValuesToLocalStorage);
 
 
   //----------------------------------------------------------------------------------------------
-function clearStorage(){
-  localStorage.clear();
-}
-//------------------------------------------------------------------------------------------------
+  function clearStorage() {
+    localStorage.clear();
+  }
+  //------------------------------------------------------------------------------------------------
 
-$("#clear").on("click",clearStorage);
+  $("#clear").on("click", clearStorage);
   //----------------------------------------------------------------------- 
-  function init(){
+  function init() {
     // addValuesToLocalStorage();  
-    SaveTOLocalStorage();
+    
     // displayInput();
   }
- 
+
 
 
   //-----------------------------------------------------------------------------
-  
-   //working
-  function SaveTOLocalStorage(){
-    let key= $(this).prev(".input-field").attr("data-time");
+
+  //This saves the an object key value pair 
+  function SaveTOLocalStorage() {
+    let key = $(this).prev(".input-field").attr("data-time");
     let value = $(this).prev(".input-field").val();
-  //  console.log("value is : "+ value);
-  //  console.log("key is : " + key);
-   let storedValAndKeyObj={};
-   storedValAndKeyObj[key]=value;
-   localStorage.setItem(key, JSON.stringify(storedValAndKeyObj));
-  //  console.log(storedValAndKeyObj);
-   displayInput(key);
+    let storedValAndKeyObj = {};
+    storedValAndKeyObj[key] = value;
+    localStorage.setItem(key, JSON.stringify(storedValAndKeyObj));
+
+
+    displayInput();
   }
-  $(".saveBtn").on("click", SaveTOLocalStorage);  
-  // });
+
+ $(".saveBtn").on("click", SaveTOLocalStorage); 
+
+  SaveTOLocalStorage();
 
   //--------------------------------------------------------------------------------------
 
   
-  function displayInput(key){
-    let dataAtribute= $(this).prev(".input-field").attr("data-time");
-    storedValAndKeyObj = JSON.parse(localStorage.getItem(key)); 
-    for (let key in storedValAndKeyObj) {
-      console.log(" The key is : " + key + "  Value : " + storedValAndKeyObj[key]);
 
-      if (key === !null || key !== undefined){
-       console.log( "I am not null or undefined");
+  function displayInput() {
+    let inputs = $("input[data-time]");
+    inputs.each(function() {
+      let input = $(this);
+      console.log(input);
+      let attr = input.attr("data-time");
+      let storedData = localStorage.getItem(attr);
+      if(storedData){
+        let parsedData = JSON.parse(storedData);
+        let inputValue = parsedData[attr];
+        input.val(inputValue);
+
       }
-    }
-    // console.log( storedValAndKeyObj );
+      
+  });
+      }
+      
 
-    
-    }
-   
-  
-
- //---------------------------------- 
- //ready function  storedInputValues = JSON.parse(localStorage.getItem(key));
 
 });
-
