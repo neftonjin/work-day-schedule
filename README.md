@@ -11,7 +11,7 @@
 
 
 ### Using the app
--In order to use the you have to click in the timeblock that you want and after just type the event .
+-In order to use the app you have to click in the timeblock input area that you want and after just type the event .
 -After typing the event just press the save icon on the right. 
 -The event will remain saved even when you close or refresh the page.
 -If you want to delete the event just click press back space to delete the input and then press the save icon on the right. 
