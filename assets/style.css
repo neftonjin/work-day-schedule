@@ -1,3 +1,10 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -34,12 +41,14 @@ body {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
+  margin: 0 auto;
 }
 
 .hour {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  line-height: 5;
 }
 
 .past {
@@ -58,14 +67,32 @@ body {
 }
 
 .saveBtn {
+  margin-bottom: 1px;
+  border-bottom:0.5px white solid;
   border-left: 1px solid black;
+  border-right: none;
+  border-top: none;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+  /* height: 80.11px; */
 }
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
+.container:first-child{
+  padding-left: 1rem;
+  background-color: aqua;
+
+}
+.inputArea{
+  display: inline-block;
+  margin-bottom: 1px;
+  margin-left: 2px;
+  border-bottom:1.3px white solid ;
+}
+
