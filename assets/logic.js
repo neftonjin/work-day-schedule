@@ -1,7 +1,7 @@
 $(document).ready(function () {
   let currentDayId = $("#currentDay");
   let containerEl = $(".container");
-  let button = "<button id='save-button' class='saveBtn col-1'> <i class='fa-solid fa-floppy-disk'> </i>  etc </button>";
+  let button = "<button id='save-button' class='saveBtn  col-2'> <i class='fas fa-save'></i>  </button>";
 
   
 
@@ -21,8 +21,8 @@ $(document).ready(function () {
 
     for (let i = 9; i <= 17; i++) {
       let hour = moment().hour(i).format('H A');
-      let inputField = " <input value = ' ' class='input-field textarea inputArea col-9' type='text' data-time =" + hour + " >";
-      let row = "<div class='row'> <span class='hour col-1'> " +  hour  +  "</span> "+ inputField + button + "</div>";
+      let inputField = " <input value = ' ' class='input-field textarea inputArea col col-`8` type='text' data-time =" + hour + " >";
+      let row = "<div class='row'> <span class='hour  col-2'> " +  hour  +  "</span> "+ inputField + button + "</div>";
       // console.log(`Time: ${hour}`);
       $(row).appendTo(containerEl);
     }
