@@ -64,16 +64,7 @@ $(document).ready(function () {
   pastPresentFutureBackground();
 
 
- //This function is clearing the localstorage api 
-  function clearStorage() {
-    localStorage.clear();
-  }
- 
-  $("#clear").on("click", clearStorage);
-  
- 
-
-  //This saves the an object key value pair 
+  //This function creates and saves an object key value pair in to local storage api
   function SaveTOLocalStorage() {
     let key = $(this).prev(".input-field").attr("data-time");
     let value = $(this).prev(".input-field").val();
